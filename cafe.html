@@ -1,0 +1,469 @@
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title></title>
+	<style>
+		/*全端末（PC・タブレット・スマホ）共通設定*/
+		/*全体の設定---------------------------------------------------------------------------*/
+		body {
+			margin: 0px;
+			padding: 0px;
+			color: #90805a;
+			font-size: 14px;
+			line-height: 2;/*行間*/
+		}
+		h1,h2,h3,h4,p,ul,li,dl,dt,dd,figure,form {margin: 0px;padding: 0px;font-size: 100%;}
+		ul {list-style-type: none;}
+		ol {padding-left: 40px;padding-bottom: 15px;}
+		img {border: none;max-width: 100%;height: auto;vertical-align: middle;}
+		/*リンク（全般）設定---------------------------------------------------------------------------*/
+		a {
+			color: #90805a;
+			transition: 0.5s;
+		}
+		a:hover {
+			color: #5a5038;
+			text-decoration: none;
+		}
+
+		/*コンテナー（HPを囲むブロック）---------------------------------------------------------------------------*/
+		#container {
+			max-width: 2000px;
+			margin: 50 70;
+			padding: 0 3%;
+		}#mainimg {
+			clear: both;width: 100%;
+			margin: 0 auto 40px;
+			position: relative;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+		}
+		#mainimg, .slide0, .slide1, .slide2, .slide3 {
+			border-radius: 10px;
+		}
+
+		header {
+			height: 200px;
+		}
+		/*ロゴ画像*/
+		header #logo img {
+			float: left;
+			width: 350px;
+			margin-top: 90px;
+		}
+		/*上部のメインメニュー---------------------------------------------------------------------------*/
+		/*メニューブロック全体の設定*/
+		#menubar {
+			float: right;
+			margin-top: 60px;
+		}
+		/*メニュー１個あたりの設定*/
+		#menubar li {
+			display: inline;
+			margin-right: 10px;
+		}
+		#menubar li a {
+			text-decoration: none;text-align: center;display: inline-block;
+			font-size: 11px;
+			height: 100px;
+			width: 100px;
+			line-height: 100px;	/*行間*/
+			color: #FFF;
+			background: #b5ac90;
+			background: rgba(144,128,90,0.5);
+			border-radius: 100px;
+			border: 10px solid #fff;
+			border: 10px solid rgba(255,255,255,0.9);
+		}
+		/*マウスオン時の設定*/
+		#menubar li a:hover {
+			background: #FFF;
+			color: #90805a;
+			border-color: #90805a;
+		}
+		/*スマホ用メニューを表示させない*/
+		#menubar-s {display: none;}
+		/*３本バーアイコンを表示させない*/
+		#menubar_hdr {display: none;}
+
+		/*メインコンテンツ---------------------------------------------------------------------------*/
+		/*h2タグの設定*/
+		#main h2 {
+			clear: both;
+			margin-bottom: 20px;
+			background: #a08e64 url(images/icon_w.png) no-repeat left center;
+			background: url(images/icon_w.png) no-repeat 10px center / auto 80%,linear-gradient(#a08e64, #90805a);
+			box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+			padding: 20px 10px 20px 70px;
+			border-radius: 10px;
+			color: #FFF;
+		}
+		/*h3タグの設定*/
+		#main h3 {
+			clear: both;
+			margin-bottom: 20px;
+			background: #a08e64;
+			background: linear-gradient(#a08e64, #90805a);
+			box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+			padding: 10px 10px 10px 20px;
+			border-radius: 10px;
+			color: #FFF;
+		}
+		/*段落タグ*/
+		#main p {
+			padding: 0 20px 20px;		/*上、左右、下への余白*/
+		}
+		/*段落タグが続いた場合の設定*/
+		#main p + p {
+			margin-top: -5px;	/*続いた段落タグを少し上に詰める*/
+		}
+		/*sectionが続いた場合の設定*/
+		#main section + section {
+			margin-top: 50px;
+		}
+		/*menu.html内のメニューブロック---------------------------------------------------------------------------*/
+		/*clearfix*/
+		#main .list:after {content: "";display: block;clear: both;}
+		/*各ボックスの設定*/
+		#main .list {
+			position: relative;
+			height: 370px;
+			width: 28%;
+			border-radius: 10px;
+			box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+			background: #FFF;
+			background: linear-gradient(#FFF, #e6e6e6);
+			padding: 1.5%;
+			float: left;
+			margin: 0px 1% 20px;
+		}
+		/*ボックス内のp(段落)タグ設定*/
+		#main .list p {
+			padding: 0px;
+			color: #666;
+			font-size: 12px;
+		}
+		/*ボックス内のh4(見出し)タグ設定*/
+		#main .list h4 {
+			margin-top: 10px;
+		}
+
+		/*フッターメニュー---------------------------------------------------------------------------*/
+		#footermenu	{
+			clear: both;
+			padding-top: 30px;
+			font-size: 12px;
+			text-align: center;
+		}
+		#footermenu li {
+			display: inline;
+			padding: 0px 5px;
+		}
+
+		/*フッター設定---------------------------------------------------------------------------*/
+		footer {
+			clear: both;text-align: center;
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+		footer .pr {display: block;font-size: 80%;}
+		footer a {text-decoration: none;}
+
+		/*トップページ内「更新情報・お知らせ」ブロック------------------------------------------------*/
+		/*ブロック全体の設定*/
+		#new dl {
+			padding: 0px 20px;
+			margin-bottom: 20px;
+		}
+		/*日付設定*/
+		#new dt {
+			float: left;
+			width: 9em;
+			letter-spacing: 0.1em;
+		}
+		/*記事設定*/
+		#new dd {
+			padding-left: 9em;
+			border-bottom: 1px solid #efefef;
+		}
+		/*その他---------------------------------------------------------------------------*/
+		.clear {clear: both;}
+		ul.disc {padding: 0em 25px 1em;list-style: disc;}
+		.color1, .color1 a {color: #486a00;}
+		.pr {font-size: 10px;}
+		.c {text-align: center;}
+		.r {text-align: right;}
+		.l {text-align: left;}
+		img.fl {margin: 0px 10px 10px 0px;float: left;}
+		img.fr {margin: 0px 0px 10px 10px;float: left;}
+
+		/*画面幅950px以下の設定--------------------------------------------------------------*/
+		@media screen and (max-width:950px){
+
+		/*ヘッダー---------------------------------------------------------------------------*/
+		/*ロゴ画像*/
+		header #logo img {
+			width: 250px;
+			margin-top: 100px;
+	}
+
+		/*上部のメインメニュー---------------------------------------------------------------------------*/
+		/*メニュー１個あたりの設定*/
+		#menubar li a {
+			height: 90px;
+			width: 90px;
+			line-height: 90px;
+			border-width: 8px;
+			margin-bottom: 10px;
+		}
+
+		}
+
+		/*画面幅800px以下の設定------------------------------------------------------------------------*/
+		@media screen and (max-width:800px){
+		/*ヘッダー--------------------------------------------------------------------------*/
+		/*ヘッダーブロック*/
+		header {
+			height: auto;
+			text-align: center;	/*中身センタリング*/
+		}
+		/*ロゴ画像*/
+		header #logo img {
+			float: none;	/*左に回り込み*/
+			margin-top: 60px;
+			margin-bottom: 20px;
+		}
+		/*上部のメインメニュー---------------------------------------------------------------------------*/
+		/*メニューブロック全体の設定*/
+		#menubar {
+			float: none;
+			margin-top: 0px;
+			margin-bottom: 20px;
+		}
+		}
+		/*画面幅600px以下の設定--------------------------------------------------------------------------*/
+		@media screen and (max-width:600px){
+		/*メニューブロック---------------------------------------------------------------------------*/
+		#main .list {
+			height: auto;
+			width: auto;
+			float: none;
+			margin: 0px 0px 20px;
+			padding: 20px;
+		}
+		/*写真画像*/
+		#main .list figure img {
+			float: left;
+			width: 70%;
+			margin-right: 3%;
+		}
+		/*ボックス内のh4タグ設定*/
+			#main .list h4 {
+			margin-top: 0px;
+		}
+		}
+		/*画面幅520px以下の設定-------------------------------------------------------------------------------*/
+		@media screen and (max-width:520px){
+
+		/*全体の設定---------------------------------------------------------------------------*/
+		body {
+			font-size: 12px;
+			line-height: 1.5;
+		}
+
+		/*ヘッダー---------------------------------------------------------------------------*/
+		/*ヘッダーブロック*/
+		header {
+			text-align: left;
+		}
+
+		/*メインメニュー---------------------------------------------------------------------------*/
+		@keyframes menu1 {
+		0% {opacity: 0;}
+		100% {opacity: 1;}
+		}
+		/*スマホ用メニューブロック*/
+		#menubar-s {
+			display: block;overflow: hidden;
+			position: absolute;
+			top: 110px;
+			left: 0px;
+			border-top: 1px solid #fff;
+			width: 100%;
+			z-index: 10;
+			animation-name: menu1;		/*上のkeyframesの名前*/
+			animation-duration: 0.5S;	/*アニメーションの実行時間。0.5秒。*/
+			animation-fill-mode: both;	/*アニメーションの完了後、最後のキーフレームを維持する*/
+		}
+		/*メニュー１個あたりの設定*/
+		#menubar-s li a {
+			display: block;text-decoration: none;
+			padding: 15px 10px 15px 20px;
+			border-bottom: 1px solid #fff;
+			background: rgba(0,0,0,0.8);
+			color: #fff;
+			font-size: 20px;
+		}
+		/*英語表記（飾り文字）*/
+		#menubar-s li a span {
+			display: block;
+			font-size: 12px;
+			}
+		/*PC用メニューを非表示にする*/
+		#menubar {
+			display: none;
+		}
+
+		/*３本バーアイコン設定---------------------------------------------------------------------------*/
+		/*３本バーブロック*/
+		#menubar_hdr {
+			display: block;
+			position: absolute;
+			top: 50px;
+			right: 3%;
+			border: 1px solid #000;
+			z-index: 20;
+		}
+		/*アイコン共通設定*/
+		#menubar_hdr.close,
+		#menubar_hdr.open {
+			width: 50px;
+			height: 50px;
+		}
+		/*三本バーアイコン*/
+		#menubar_hdr.close {
+			background: #fff url("images/icon_menu.png")no-repeat center top/50px;
+		}
+		/*閉じるアイコン*/
+		#menubar_hdr.open {
+			background: #fff url("images/icon_menu.png")no-repeat center bottom/50px;
+		}
+
+		/*メインコンテンツ---------------------------------------------------------------------------*/
+		#main h2 {
+			padding: 15px 10px 15px 50px;
+		}
+		#main h3 {
+			padding-left: 10px;
+		}
+		/*段落タグ設定*/
+		#main p {
+			padding: 0px 10px 20px;
+		}
+		}
+	</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="js/openclose.js"></script>
+<script src="js/fixmenu_pagetop.js"></script>
+</head>
+
+<body>
+
+<div id="container">
+
+<header>
+	<h1 id="logo"><a href="#"><img src="images/1111.png" alt="CAFE"></a></h1>
+<!--PC用（801px以上端末）メニュー-->
+	<nav id="menubar">
+		<ul>
+			<li><a href="portfolio.html">Portfolio</a></li>
+			<li><a href="#">ABOUT</a></li>
+			<li><a href="#">MENU</a></li>
+			<li><a href="#">ACCESS</a></li>
+		</ul>
+	</nav>
+<!--小さな端末用（800px以下端末）メニュー-->
+	<nav id="menubar-s">
+		<ul>
+			<li><a href="portfolio.html">Portfolio</a></li>
+			<li><a href="#">ABOUT</a></li>
+			<li><a href="#">MENU</a></li>
+			<li><a href="#">ACCESS</a></li>
+		</ul>
+	</nav>
+</header>
+<aside id="mainimg">
+<img src="images/top2.jpg" >
+</aside>
+
+
+<div id="contents">
+
+	<div id="main">
+
+		<section>
+
+			<h2>店舗情報</h2>
+
+			<p>多種多様な犬猫がいるので、眺めながらゆったりとした時間を過ごせます
+				<br>オプションでおやつを与えたり、おもちゃで一緒に遊んだりもできます。</p>
+
+		</section>
+
+		<section>
+
+			<h2>犬猫</h2>
+
+			<div class="list">
+				<figure><img src="images/dog1.jpg" ></figure>
+				<h4>ゆう　５歳</h4>
+			<p>オス、人懐こく、他の猫ともめったに喧嘩をせず優しい性格です。</p>
+			</div>
+
+			<div class="list">
+				<figure><img src="images/cat1.jpg" ></figure>
+				<h4>シロ　3歳</h4>
+      <p>メス、知性が高いため、飼い主さんがしていることに興味を持って、ちょっかいを出してきたり、物を隠したり、また飼い主さんが隠した物を探し出したりします。</p>
+			</div>
+
+			<div class="list">
+				<figure><img src="images/cat3.jpg" ></figure>
+				<h4>たま　4歳</h4>
+				<p>メス、飼い主さんや家族によく懐き、体をすりつけてくることも多く、抱っこも大好きです。</p>
+			</div>
+
+		</section>
+
+		<section id="new">
+			<h2>更新情報・お知らせ</h2>
+			<dl>
+				<dt>04/24</dt>
+				<dd>営業時間短縮のお知らせ</dd>
+
+				<dt>01/05</dt>
+				<dd>アルバイト募集中</dd>
+			</dl>
+			<p class="r"><a href="#">過去ログ</a></p>
+		</section>
+
+	</div>
+<!--/main-->
+
+		<ul id="footermenu">
+			<li><a href="#">ホーム</a></li>
+			<li><a href="＃">当サイトについて</a></li>
+			<li><a href="#">メニュー</a></li>
+			<li><a href="#">アクセス</a></li>
+		</ul>
+
+</div>
+<!--/contents-->
+
+<footer>
+	<small>Copyright&copy; <a href="kadai.html">CAFE</a> All Rights Reserved.</small>
+</footer>
+
+</div>
+<!--/container-->
+
+<!--メニュー開閉ボタン-->
+<div id="menubar_hdr" class="close"></div>
+<!--メニューの開閉処理条件設定　520px以下-->
+<script>
+if (OCwindowWidth() <= 520) {
+	open_close("menubar_hdr", "menubar-s");
+}
+</script>
+
+</body>
+</html>
